@@ -1,25 +1,104 @@
 import 'package:flutter/material.dart';
 import 'package:front_end/create.dart';
+import 'package:front_end/state_managment/theme_logic.dart';
+import 'state_managment/fontsize_logic.dart';
+import 'package:provider/provider.dart';
+import 'app_bar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
+    double size = context.watch<FontSizeLogic>().size;
+    int themeIndex = context.watch<ThemeLogic>().themeIndex;
+
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        children: [
-          ElevatedButton(
-              onPressed: () {
-                CreateTask();
-              },
-              child: const Text("Create")),
-          ElevatedButton(onPressed: () {}, child: const Text("Read")),
-          ElevatedButton(onPressed: () {}, child: const Text("Update")),
-          ElevatedButton(onPressed: () {}, child: const Text("Delete")),
-        ],
+      appBar: const MyAppBar(
+        title: "To Do List",
       ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              const Padding(padding: EdgeInsets.only(top: 20)),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(150 + (4 * size), 50 + (4 * size)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  textStyle: TextStyle(
+                    fontSize: 18 + size,
+                    overflow: TextOverflow.visible,
+                  ),
+                  alignment: Alignment.center,
+                ),
+                child: const Text("Read"),
+              ),
+              const Padding(padding: EdgeInsets.only(top: 20)),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(150 + (4 * size), 50 + (4 * size)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  textStyle: TextStyle(
+                    fontSize: 18 + size,
+                    overflow: TextOverflow.visible,
+                  ),
+                  alignment: Alignment.center,
+                ),
+                child: const Text("Update"),
+              ),
+              const Padding(padding: EdgeInsets.only(top: 20)),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(150 + (4 * size), 50 + (4 * size)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  textStyle: TextStyle(
+                    fontSize: 18 + size,
+                    overflow: TextOverflow.visible,
+                  ),
+                  alignment: Alignment.center,
+                ),
+                child: const Text("Delete"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(
+          bottom: 10,
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: SizedBox(
+            width: 80 + size,
+            height: 60 + size,
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CreateTask()),
+                );
+              },
+              backgroundColor: themeIndex == 1 ? Colors.blue : Colors.black,
+              shape: const CircleBorder(),
+              child: Icon(Icons.add, size: 30 + size, color: Colors.white),
+            ),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
     );
   }
 }
