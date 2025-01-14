@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:front_end/create.dart';
+import 'package:front_end/fetch.dart';
 import 'package:front_end/state_managment/theme_logic.dart';
 import 'state_managment/fontsize_logic.dart';
 import 'package:provider/provider.dart';
-import 'app_bar.dart';
+import 'components/app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -28,7 +29,12 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const Padding(padding: EdgeInsets.only(top: 20)),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const FetchData()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(150 + (4 * size), 50 + (4 * size)),
                   padding:

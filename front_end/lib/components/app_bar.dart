@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'state_managment/fontsize_logic.dart';
-import 'state_managment/theme_logic.dart';
+import '../state_managment/fontsize_logic.dart';
+import '../state_managment/theme_logic.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;

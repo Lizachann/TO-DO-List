@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:front_end/services/api.dart';
 import 'package:front_end/state_managment/fontsize_logic.dart';
 import 'package:front_end/state_managment/theme_logic.dart';
 import 'package:provider/provider.dart';
-import 'app_bar.dart';
+import 'components/app_bar.dart';
 
 class CreateTask extends StatefulWidget {
   const CreateTask({super.key});
@@ -40,8 +39,8 @@ class _CreateTaskState extends State<CreateTask> {
                     fontSize: 26 + size,
                     overflow: TextOverflow.visible,
                     color: themeIndex == 1
-                        ? Color.fromARGB(255, 93, 93, 93)
-                        : Color.fromARGB(255, 202, 202, 202),
+                        ? const Color.fromARGB(255, 93, 93, 93)
+                        : const Color.fromARGB(255, 202, 202, 202),
                   ),
                 ),
                 style: TextStyle(
@@ -63,8 +62,8 @@ class _CreateTaskState extends State<CreateTask> {
                     fontSize: 20 + size,
                     overflow: TextOverflow.visible,
                     color: themeIndex == 1
-                        ? Color.fromARGB(255, 93, 93, 93)
-                        : Color.fromARGB(255, 202, 202, 202),
+                        ? const Color.fromARGB(255, 93, 93, 93)
+                        : const Color.fromARGB(255, 202, 202, 202),
                   ),
                 ),
                 style: TextStyle(
@@ -86,8 +85,8 @@ class _CreateTaskState extends State<CreateTask> {
                     fontSize: 20 + size,
                     overflow: TextOverflow.visible,
                     color: themeIndex == 1
-                        ? Color.fromARGB(255, 93, 93, 93)
-                        : Color.fromARGB(255, 202, 202, 202),
+                        ? const Color.fromARGB(255, 93, 93, 93)
+                        : const Color.fromARGB(255, 202, 202, 202),
                   ),
                 ),
                 style: TextStyle(

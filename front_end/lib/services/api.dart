@@ -6,6 +6,8 @@ import 'package:http/http.dart' as http;
 class Api {
   static const apiUrl = "http://192.168.1.15/api/";
 
+  /////Post Method
+
   static addtask(Map pdata) async {
     var url = Uri.parse("${apiUrl}add_task");
 
@@ -21,4 +23,24 @@ class Api {
       debugPrint(e.toString());
     }
   }
+
+  // /////Get Method
+
+  // static gettask() async {
+  //   var url = Uri.parse("${apiUrl}get_task");
+
+  //   try {
+  //     final response = await http.get(url);
+  //     if (response.statusCode == 200) {
+  //       var data = jsonDecode(response.body.toString());
+  //       print(data);
+  //     } else {
+  //       debugPrint("Failed to get task");
+  //     }
+  //   } catch (e) {
+  //     debugPrint(e.toString());
+  //   }
+  // }
+
+
 }
