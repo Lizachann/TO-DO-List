@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class Api {
-  static const apiUrl = "http://192.168.1.15/api/";
+  static const apiUrl = "http://172.23.3.58/api/";
 
   /////Post Method
 
@@ -41,6 +41,4 @@ class Api {
   //     debugPrint(e.toString());
   //   }
   // }
-
-
 }
